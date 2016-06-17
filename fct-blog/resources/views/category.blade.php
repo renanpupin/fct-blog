@@ -5,6 +5,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="row">
+                    <h1>{{$categoria->name}}</h1>
                     @foreach($posts as $post)
                         <div class="col-md-4">
                             <div style="margin-bottom: 20px; border: 1px solid #e7e7e7;">
@@ -20,6 +21,10 @@
                             </div>
                         </div>
                     @endforeach
+
+                    @if(count($posts) == 0)
+                        <p>Sem posts para esta categoria</p>
+                    @endif
                 </div>
             </div>
         </div>

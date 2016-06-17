@@ -13,11 +13,13 @@
 
 Route::get('/', 'WebsiteController@indexWebsite');
 Route::get('/categorias/{slug}', 'WebsiteController@postCategory');
+Route::get('/post/{slug}', 'WebsiteController@postDetail');
 
 Route::auth();
 
 
 Route::group(['prefix' => 'dashboard'], function() {
+
     Route::get('/home', 'HomeController@index');
 
     Route::group(['middleware' => 'auth'], function() {

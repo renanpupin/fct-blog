@@ -44,15 +44,15 @@ class PostController extends Controller
         if($post->title == $request["title"]){
             $regras = array(
                 'title' => 'required|string|max:100',
-                'content' => 'required|string|max:10000',
-                'feature_img' => 'required|max:5120',
+                'content' => 'required|string|max:100000',
+                'feature_img' => 'max:5120|mimes:jpeg,png,gif,bmp',
                 'id_category' => 'required'
             );
         }else{
             $regras = array(
                 'title' => 'required|string|max:100|unique:post',
-                'content' => 'required|string|max:10000',
-                'feature_img' => 'required|max:5120',
+                'content' => 'required|string|max:100000',
+                'feature_img' => 'max:5120|mimes:jpeg,png,gif,bmp',
                 'id_category' => 'required'
             );
         }
@@ -109,10 +109,12 @@ class PostController extends Controller
 
     public function store(Request $request){
 
+        //'avatar' => 'dimensions:min_width=100,min_height=200'
+        //'file' => ''
         $regras = array(
             'title' => 'required|string|max:100|unique:post',
-            'content' => 'required|string|max:10000',
-            'feature_img' => 'required|max:5120',
+            'content' => 'required|string|max:100000',
+            'feature_img' => 'required|max:5120|mimes:jpeg,png,gif,bmp',
             'id_category' => 'required'
         );
 
